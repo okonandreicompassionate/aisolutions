@@ -84,7 +84,7 @@ def chat():
         messages.append({"role": "user", "content": user_prompt})
 
         # Call OpenAI API with error handling for quota/rate limits
-        client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        client = openai.OpenAI(api_key="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")
         # Ensure you have set your OpenAI API key in the environment variables
         try:
             response = client.chat.completions.create(
