@@ -1,0 +1,74 @@
+<!-- templates/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>login - AI Assistant</title>
+  <style>
+    body {
+      background: #1d1f27;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #2a2d3e;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      animation: slideIn 1s ease;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background: #3c3f58;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #00c6ff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0072ff;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+ <form class="card" method="POST">
+    {{ form.csrf_token }}
+    <h2>log in</h2>
+    {{ form.email(class_="form-control", placeholder="Email", required=True) }}
+    {{ form.password(class_="form-control", placeholder="Password", required=True) }}
+    {{ form.submit(class_="btn btn-primary", style="width:100%;padding:12px;background:#00c6ff;border:none;border-radius:6px;font-weight:bold;color:white;cursor:pointer;") }}
+    <p style="text-align:center;margin-top:10px;">
+     don't have an account? <a href="{{ url_for('register') }}" style="color:#00c6ff;">register</a>
+    </p>
+  </form>
+</body>
+</html>
